@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="CSS/jobs.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1><a href="index.html">JobPortal</a></h1>
     <nav id="nav-menu">
@@ -32,27 +33,10 @@
 
   <!-- Main Content -->
   <section class="job-listings" id="job-listings">
-    <!-- Example static job cards -->
-    <div class="job-card">
-      <h2>Web Developer</h2>
-      <p>Company: Example Corp</p>
-      <p>Location: Remote</p>
-      <button onclick="viewJobDetails(1)">View Details</button>
-    </div>
-    <div class="job-card">
-      <h2>Graphic Designer</h2>
-      <p>Company: Creative Inc</p>
-      <p>Location: New York</p>
-      <button onclick="viewJobDetails(2)">View Details</button>
-    </div>
-    <div class="job-card">
-      <h2>Data Analyst</h2>
-      <p>Company: DataWorks</p>
-      <p>Location: San Francisco</p>
-      <button onclick="viewJobDetails(3)">View Details</button>
-    </div>
+    <!-- Job cards will be inserted here by JavaScript -->
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2024 Job Portal. Made by ???.</p>
     <ul class="footer-links">
@@ -67,19 +51,7 @@
     </div>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      // Your mobile nav toggle logic
-    }
-
-    function searchJobs() {
-      // Your search logic
-    }
-
-    function viewJobDetails(jobId) {
-      // Navigate to job-details.html with the given ID
-      window.location.href = 'job-details.html?id=' + jobId;
-    }
-  </script>
+  <!-- Scripts -->
+  <script src="JS/jobscript.js"></script>
 </body>
 </html>
