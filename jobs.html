@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="CSS/jobs.css">
 </head>
 <body>
-  <!-- Header -->
   <header>
     <h1><a href="index.html">JobPortal</a></h1>
     <nav id="nav-menu">
@@ -33,10 +32,10 @@
 
   <!-- Main Content -->
   <section class="job-listings" id="job-listings">
-    <!-- Job cards will be inserted here by JavaScript -->
+    <!-- Example static job cards -->
+
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2024 Job Portal. Made by ???.</p>
     <ul class="footer-links">
@@ -51,7 +50,175 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="JS/jobscript.js"></script>
+  <script>
+    function toggleMenu() {
+      // Your mobile nav toggle logic
+    }
+
+    function searchJobs() {
+      // Your search logic
+    }
+
+    function viewJobDetails(jobId) {
+      // Navigate to job-details.html with the given ID
+      window.location.href = 'job-details.html?id=' + jobId;
+    }
+    // Sample job data with tags
+const jobs = [
+  {
+    title: 'UX/UI Designer',
+    company: 'Google',
+    location: 'Mountain View, California',
+    type: 'Remote • Part-time • 5+ years',
+    salary: '$50k - $101k/yr',
+    posted: '5 minutes ago',
+    details: 'job_details.html',
+    tags: ['Undergraduate', 'Remote', 'Part-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Product Manager',
+    company: 'Amazon',
+    location: 'Seattle, Washington',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$110k - $130k/yr',
+    posted: '2 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate','management', 'On-site', 'Full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Facebook',
+    location: 'Menlo Park, California',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$120k - $150k/yr',
+    posted: '13 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate', 'remote', 'full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'UX/UI Designer',
+    company: 'Google',
+    location: 'Mountain View, California',
+    type: 'Remote • Part-time • 5+ years',
+    salary: '$50k - $101k/yr',
+    posted: '5 minutes ago',
+    details: 'job_details.html',
+    tags: ['Undergraduate', 'Remote', 'Part-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Product Manager',
+    company: 'Amazon',
+    location: 'Seattle, Washington',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$110k - $130k/yr',
+    posted: '2 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate','management', 'On-site', 'Full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Facebook',
+    location: 'Menlo Park, California',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$120k - $150k/yr',
+    posted: '13 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate', 'remote', 'full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Product Manager',
+    company: 'Amazon',
+    location: 'Seattle, Washington',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$110k - $130k/yr',
+    posted: '2 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate','management', 'On-site', 'Full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Facebook',
+    location: 'Menlo Park, California',
+    type: 'Remote • Full-time • 5+ years',
+    salary: '$120k - $150k/yr',
+    posted: '13 hours ago',
+    details: 'job_details.html',
+    tags: ['Graduate', 'remote', 'full-time'],
+    logo: 'https://via.placeholder.com/50?text=G'
+  },
+
+];
+
+// Function to display jobs
+function displayJobs(jobList) {
+  const jobListings = document.getElementById('job-listings');
+  if (jobListings) {
+    jobListings.innerHTML = ''; // Clear current listings
+
+    jobList.forEach(job => {
+      const jobCard = document.createElement('div');
+      jobCard.classList.add('job-card');
+
+      // Generate tags HTML
+      const tagsHTML = job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join(' ');
+
+      jobCard.innerHTML = `
+        <div class="job-header">
+          <img src="${job.logo}" alt="${job.company} logo" class="job-logo">
+          <h2>${job.title}</h2>
+        </div>
+        <p>${job.company} - ${job.location}</p>
+        <p>${job.type}</p>
+        <div class="salary">Salary: ${job.salary}</div>
+        <p>${job.posted}</p>
+        <div class="job-tags">${tagsHTML}</div>
+        <a href="${job.details}">View Details</a>
+      `;
+
+      jobListings.appendChild(jobCard);
+    });
+  }
+}
+
+
+
+// Initial display of jobs
+displayJobs(jobs);
+
+// Search functionality
+function searchJobs() {
+  const query = document.getElementById('search-input').value.toLowerCase();
+  const filteredJobs = jobs.filter(job => 
+    job.title.toLowerCase().includes(query) || 
+    job.tags.some(tag => tag.toLowerCase().includes(query))
+  );
+  displayJobs(filteredJobs);
+}
+
+// Toggle mobile menu
+function toggleMenu() {
+  const navMenu = document.getElementById('nav-menu');
+  navMenu.classList.toggle('active');
+}
+
+// Form validation functions
+function validateLoginForm() {
+  // Add your validation logic here
+  return true;
+}
+
+function validateSignupForm() {
+  // Add your validation logic here
+  return true;
+}
+
+  </script>
 </body>
 </html>
