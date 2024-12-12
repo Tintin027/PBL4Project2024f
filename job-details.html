@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .job-details {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .job-item {
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="job-details">
+    <h1 id="jobTitle">Loading...</h1>
+    <div class="job-item">
+      <span class="label">Company:</span> <span id="company">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Location:</span> <span id="location">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Description:</span> <span id="description">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Salary:</span> <span id="salary">Loading...</span>
+    </div>
+  </div>
+
+  <script>
+    // Placeholder job data
+    const jobs = [
+      { id: 1, title: "Web Developer", company: "Example Corp", location: "Remote", description: "Developing front-end for web apps.", salary: "$60,000 - $80,000" },
+      { id: 2, title: "Graphic Designer", company: "Creative Inc", location: "New York", description: "Designing banners and marketing material.", salary: "$50,000 - $70,000" },
+      { id: 3, title: "Data Analyst", company: "DataWorks", location: "San Francisco", description: "Analyzing complex datasets.", salary: "$70,000 - $90,000" }
+    ];
+
+    function getJobIdFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('id');
+    }
+
+    function loadJobDetails() {
+      const jobId = parseInt(getJobIdFromUrl(), 10);
+      if (jobId) {
+        const job = jobs.find(j => j.id === jobId);
+        if (job) {
+          document.getElementById('jobTitle').textContent = job.title;
+          document.getElementById('company').textContent = job.company;
+          document.getElementById('location').textContent = job.location;
+          document.getElementById('description').textContent = job.description;
+          document.getElementById('salary').textContent = job.salary;
+        } else {
+          document.getElementById('jobTitle').textContent = "Job Not Found";
+        }
+      } else {
+        document.getElementById('jobTitle').textContent = "No Job ID Provided";
+      }
+    }
+
+    // Run on page load
+    window.onload = loadJobDetails;
+  </script>
+</body>
+</html>
