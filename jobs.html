@@ -8,7 +8,10 @@
 </head>
 <body>
   <header>
-    <h1><a href="index.html">JobPortal</a></h1>
+    <div class="logo">
+      <a href="index.html"><img src="IMG/logo.png" alt="Logo"></a>
+    </div>
+    </div>
     <nav id="nav-menu">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -21,7 +24,6 @@
       <input type="text" id="search-input" placeholder="Search Jobs">
       <button class="search-btn" onclick="searchJobs()">Search</button>
       <a href="login.html"><button class="login-btn">Log In</button></a>
-      <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
     </div>
     <div class="hamburger" onclick="toggleMenu()">
       <div></div>
@@ -32,12 +34,10 @@
 
   <!-- Main Content -->
   <section class="job-listings" id="job-listings">
-    <!-- Example static job cards -->
-
   </section>
 
   <footer class="footer">
-    <p>&copy; 2024 Job Portal. Made by ???.</p>
+    <p>&copy; 2024 DiplomaDough. Made by Team F.</p>
     <ul class="footer-links">
       <li><a href="#">Privacy Policy</a></li>
       <li><a href="#">Terms of Service</a></li>
@@ -95,7 +95,7 @@ const jobs = [
     salary: '$120k - $150k/yr',
     posted: '13 hours ago',
     details: 'job-details.html',
-    tags: ['Graduate', 'remote', 'full-time'],
+    tags: ['Graduate','Flexible', 'remote', 'full-time'],
     logo: 'https://via.placeholder.com/50?text=G'
   }
 ];
@@ -114,17 +114,26 @@ function displayJobs(jobList) {
       const tagsHTML = job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join(' ');
 
       jobCard.innerHTML = `
-        <div class="job-header">
-          <img src="${job.logo}" alt="${job.company} logo" class="job-logo">
-          <h2>${job.title}</h2>
-        </div>
-        <p>${job.company} - ${job.location}</p>
-        <p>${job.type}</p>
-        <div class="salary">Salary: ${job.salary}</div>
-        <p>${job.posted}</p>
-        <div class="job-tags">${tagsHTML}</div>
+  <div class="job-card">
+    <div class="job-top">
+      <div class="job-header">
+        <img src="${job.logo}" alt="${job.company} logo" class="job-logo">
+        <h2>${job.title}</h2>
+      </div>
+      <p>${job.company} - ${job.location}</p>
+      <p>${job.type}</p>
+    </div>
+    <div class="job-bottom">
+      <div class="salary">Salary: ${job.salary}</div>
+      <p>${job.posted}</p>
+      <div class="job-tags">${tagsHTML}</div>
+      <div class="job-footer">
         <a href="${job.details}">View Details</a>
-      `;
+      </div>
+    </div>
+  </div>
+`;
+
 
       jobListings.appendChild(jobCard);
     });
