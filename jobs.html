@@ -66,6 +66,7 @@
     // Sample job data with tags
 const jobs = [
   {
+    id: 1,
     title: 'UX/UI Designer',
     company: 'Google',
     location: 'Mountain View, California',
@@ -77,6 +78,7 @@ const jobs = [
     logo: 'https://via.placeholder.com/50?text=G'
   },
   {
+    id: 3,
     title: 'Product Manager',
     company: 'Amazon',
     location: 'Seattle, Washington',
@@ -88,6 +90,7 @@ const jobs = [
     logo: 'https://via.placeholder.com/50?text=G'
   },
   {
+    id: 3,
     title: 'Software Engineer',
     company: 'Facebook',
     location: 'Menlo Park, California',
@@ -128,7 +131,7 @@ function displayJobs(jobList) {
       <p>${job.posted}</p>
       <div class="job-tags">${tagsHTML}</div>
       <div class="job-footer">
-        <a href="${job.details}">View Details</a>
+        <a href="${job.details}?id=${job.id}">View Details</a>
       </div>
     </div>
   </div>
