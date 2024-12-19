@@ -53,6 +53,22 @@
       <li>5+ years of experience in software development.</li>
       <li>Proficient in JavaScript, HTML, CSS, and modern frameworks.</li>
     </ul>
+    <!--Temporary Google Map API Placeholder-->
+    <h2>Job Location</h2>
+    <div id="googleMap" style="width:50%;height:400px;"></div>
+
+    <script>
+    function myMap() {
+        var mapProp= {
+          center:new google.maps.LatLng(34.81636, 135.56858),
+          zoom:15,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5OALjEC9eEfzkvtI4ubbcXOkeJMMBTTU&callback=myMap"></script>
+    <!--Temporary Google Map API Placeholder-->
     <button class="apply-btn">Apply Now</button>
   </section>
 
