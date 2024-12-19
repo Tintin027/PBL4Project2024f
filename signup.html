@@ -7,72 +7,52 @@
   <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-<!-- Header -->
-<header>
-  <h1><a href="index.html">JobPortal</a></h1>
-  <nav id="nav-menu">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="#">Companies</a></li>
-      <li><a href="#">About Us</a></li>
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html">JobPortal</a></h1>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="auth-container">
+    <form class="auth-form" onsubmit="return validateSignupForm()">
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit" class="auth-btn">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Log In</a></p>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Job Portal. Made by ???.</p>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
-  </nav>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</header>
+    <div class="social-media">
+      <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+      <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+    </div>
+  </footer>
 
-<!-- Main Content -->
-<div class="auth-container">
-  <form class="auth-form" id="signupForm">
-    <!-- Step 1 -->
-    <div class="form-step active" id="step-1">
-      <input type="text" class=".auth-form input" placeholder="Email" required>
-      <button type="button" onclick="nextStep()" class="auth-btn">Next</button>
-    </div>
-    <!-- Step 2 -->
-    <div class="form-step" id="step-2">
-      <input type="text" class=".auth-form input" placeholder="Password" required>
-      <button type="button" onclick="nextStep()" class="auth-btn">Next</button>
-    </div>
-    <!-- Step 3 -->
-    <div class="form-step" id="step-3">
-      <input type="text" class=".auth-form input" placeholder="User Name" required>
-      <button type="button" onclick="nextStep()" class="auth-btn">Next</button>
-    </div>
-    <!-- Step 4 -->
-    <div class="form-step" id="step-4">
-      <input type="text" class=".auth-form input" placeholder="First Name" required>
-      <button type="button" onclick="nextStep()" class="auth-btn">Next</button>
-    </div>
-    <!-- Step 5 -->
-    <div class="form-step" id="step-5">
-      <input type="text" class=".auth-form input" placeholder="Last Name" required>
-      <button type="submit" class="auth-btn" >Sign Up</button>
-    </div>
-    <p>Already have an account? <a href="login.html" class="log-in-link">Log In</a></p>
-  </form>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2024 Job Portal. Made by ???.</p>
-  <ul class="footer-links">
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
-  <div class="social-media">
-    <a href="#"><img src="images/facebook_icon.png" alt="Facebook"></a>
-    <a href="#"><img src="images/twitter_icon.png" alt="Twitter"></a>
-    <a href="#"><img src="images/linkedin_icon.png" alt="LinkedIn"></a>
-  </div>
-</footer>
-
-<!-- Scripts -->
-<script src="JS/scripts.js"></script>
+  <!-- Scripts -->
+  <script src="JS/scripts.js"></script>
 </body>
 </html>
