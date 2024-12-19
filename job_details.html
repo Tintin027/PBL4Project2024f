@@ -75,3 +75,80 @@
   <script src="JS/scripts.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobPortal - Job Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html">JobPortal</a></h1>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="#">Companies</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <input type="text" id="search-input" placeholder="Search Jobs">
+      <button class="search-btn" onclick="searchJobs()">Search</button>
+      <a href="login.html"><button class="login-btn">Log In</button></a>
+      <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="job-details">
+    <h1>Software Engineer</h1>
+    <p>Facebook • Menlo Park, California</p>
+    <p>Remote • Full-time • 5+ years</p>
+    <p>Salary: $100k - $120k/yr</p>
+    <h2>Job Description</h2>
+    <p>
+      We are looking for a skilled Software Engineer to join our team. You will be responsible for designing, developing, and maintaining software solutions.
+    </p>
+    <h2>Responsibilities</h2>
+    <ul>
+      <li>Develop high-quality software design and architecture.</li>
+      <li>Identify, prioritize and execute tasks in the software development life cycle.</li>
+      <li>Collaborate with internal teams and vendors to fix and improve products.</li>
+    </ul>
+    <h2>Requirements</h2>
+    <ul>
+      <li>Bachelor's degree in Computer Science or related field.</li>
+      <li>5+ years of experience in software development.</li>
+      <li>Proficient in JavaScript, HTML, CSS, and modern frameworks.</li>
+    </ul>
+    <button class="apply-btn">Apply Now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Job Portal. Made by ???.</p>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="social-media">
+      <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+      <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="JS/scripts.js"></script>
+</body>
+</html>
