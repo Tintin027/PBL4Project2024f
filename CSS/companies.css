@@ -1,0 +1,37 @@
+/* Centering the text in the main content */
+main {
+    text-align: center; /* Centers all text inside the main element */
+    padding: 20px; /* Adds some padding around the content */
+    color: #333; /* Set default text color */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center; /* Center all items horizontally */
+    justify-content: center; /* Center all items vertically */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  h1 {
+    margin-bottom: 20px; /* Adds space below the heading */
+    color: #2c3e50; /* Darker color for the main heading */
+  }
+  
+  p {
+    margin-bottom: 30px; /* Adds space below the paragraph */
+    color: #7f8c8d; /* Lighter color for the description text */
+  }
+  
+  .partner-list {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+  }
+  
+  .partner-item {
+    margin-bottom: 20px; /* Adds space between list items */
+    font-size: 1.2em; /* Slightly larger font for readability */
+    color: #34495e; /* Custom color for the company names */
+  }
+  
+  .partner-item strong {
+    color: #2980b9; /* Blue color for the company names */
+  }

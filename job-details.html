@@ -2,87 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #eeff00;
-      padding: 20px;
-    }
-
-    .job-details {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .job-item {
-      margin-bottom: 10px;
-    }
-
-    .label {
-      font-weight: bold;
-    }
-  </style>
+  <title>JobPortal - Job Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Page-Specific CSS for Job Details -->
+  <link rel="stylesheet" href="CSS/jobDetails.css">
+  <!-- Same scripts.js (global) -->
+  <script src="js/scripts.js" defer></script>
 </head>
 <body>
-  <div class="job-details">
-    <h1 id="jobTitle">Loading...</h1>
-    <div class="job-item">
-      <span class="label">Company:</span> <span id="company">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Location:</span> <span id="location">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Description:</span> <span id="description">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Salary:</span> <span id="salary">Loading...</span>
-    </div>
+
+<!-- HEADER (copied directly from jobs.html for consistency) -->
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="IMG/logo.png" alt="Logo"></a>
   </div>
+  <nav id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="companies.html">Companies</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <a href="login.html"><button class="login-btn">Log In</button></a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
 
-  <script>
-    // Placeholder job data
-    const jobs = [
-      { id: 1, title: "Web Developer", company: "Example Corp", location: "Remote", description: "Developing front-end for web apps.", salary: "$60,000 - $80,000" },
-      { id: 2, title: "Graphic Designer", company: "Creative Inc", location: "New York", description: "Designing banners and marketing material.", salary: "$50,000 - $70,000" },
-      { id: 3, title: "Data Analyst", company: "DataWorks", location: "San Francisco", description: "Analyzing complex datasets.", salary: "$70,000 - $90,000" }
-    ];
+<!-- MAIN CONTENT -->
+<section class="job-details-container">
+  <!-- This is where we'll put the job details and Google Map -->
+  <div id="job-details-content"></div>
+</section>
 
-    function getJobIdFromUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('id');
+<!-- FOOTER (same as jobs.html) -->
+<footer class="footer">
+  <p>&copy; 2024 DiplomaDough. Made by Team F.</p>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <div class="social-media">
+    <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+    <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+    <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+  </div>
+</footer>
+
+<!-- Inline script to load job details + Google Map -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Parse the ?id= from the URL
+    const params = new URLSearchParams(window.location.search);
+    const jobId = parseInt(params.get('id'), 10);
+
+    // "jobs" is declared in scripts.js
+    const job = jobs.find(j => j.id === jobId);
+
+    const container = document.getElementById('job-details-content');
+    if (!job) {
+      container.innerHTML = '<p>Job not found.</p>';
+      return;
     }
 
-    function loadJobDetails() {
-      const jobId = parseInt(getJobIdFromUrl(), 10);
-      if (jobId) {
-        const job = jobs.find(j => j.id === jobId);
-        if (job) {
-          document.getElementById('jobTitle').textContent = job.title;
-          document.getElementById('company').textContent = job.company;
-          document.getElementById('location').textContent = job.location;
-          document.getElementById('description').textContent = job.description;
-          document.getElementById('salary').textContent = job.salary;
-        } else {
-          document.getElementById('jobTitle').textContent = "Job Not Found";
-        }
-      } else {
-        document.getElementById('jobTitle').textContent = "No Job ID Provided";
-      }
-    }
+    // Generate the encoded location for Google Maps
+    const locationEncoded = encodeURIComponent(job.location);
 
-    // Run on page load
-    window.onload = loadJobDetails;
-  </script>
+    // IMPORTANT: Replace YOUR_API_KEY with your actual Google Maps Embed API key
+    // For example: &key=AIzaSy**********
+    const googleMapIframe = `
+      <iframe
+        width="600"
+        height="450"
+        style="border:0; max-width: 100%;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${locationEncoded}">
+      </iframe>
+    `;
+
+    // Populate details
+    container.innerHTML = `
+      <h1>${job.title}</h1>
+      <p><strong>Company:</strong> ${job.company}</p>
+      <p><strong>Location:</strong> ${job.location}</p>
+      <p><strong>Type:</strong> ${job.type}</p>
+      <p><strong>Salary:</strong> ${job.salary}</p>
+      <p><strong>Posted:</strong> ${job.posted}</p>
+      <div class="job-tags">
+        <strong>Tags:</strong> ${job.tags.map(t => `<span class="job-tag">${t}</span>`).join(' ')}
+      </div>
+      <div class="map-container" style="margin-top: 20px;">
+        ${googleMapIframe}
+      </div>
+      <div style="margin-top: 20px;">
+        <button onclick="window.history.back()">Go Back</button>
+      </div>
+    `;
+  });
+</script>
+
 </body>
 </html>

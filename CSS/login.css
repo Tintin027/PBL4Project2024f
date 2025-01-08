@@ -1,266 +1,358 @@
-/* styles.css */
+/*=============================================
+=            CSS Variables (Optional)         =
+=============================================*/
+:root {
+  /* Primary Colors */
+  --primary-color: #5c6bc0;
+  --secondary-color: #333;
+  --background-color: #f8f9fc;
 
-/* General Styles */
+  /* Grays */
+  --gray-light: #ccc;
+  --gray-medium: #777;
+  --gray-dark: #333;
+
+  /* Shadows */
+  --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*=============================================
+=                  Reset & Base               =
+=============================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fc;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Header Styles */
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*=============================================
+=                  Header                     =
+=============================================*/
+header {
+  background-color: #fff;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-medium);
+}
+
+header h1 {
+  font-size: 1.75rem; /* 28px */
+  color: var(--primary-color);
+  margin-right: 1rem;
+}
+
+nav {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-actions input[type="text"] {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid var(--gray-light);
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.header-actions input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.search-btn,
+.login-btn,
+.signup-btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover,
+.login-btn:hover,
+.signup-btn:hover {
+  background-color: #4d5aa8; /* Slightly darker shade */
+}
+
+/*=============================================
+=               Hamburger Menu                =
+=============================================*/
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+/*=============================================
+=               Job Listings                  =
+=============================================*/
+.job-listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 50px;
+}
+
+.job-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.job-card h2 {
+  font-size: 1.125rem; /* 18px */
+  color: var(--secondary-color);
+  margin: 0;
+}
+
+.job-card p {
+  margin: 10px 0;
+  color: var(--gray-medium);
+}
+
+.job-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.job-card a:hover {
+  color: #4d5aa8;
+}
+
+/*=============================================
+=               Job Details                   =
+=============================================*/
+.job-details {
+  padding: 40px 50px;
+}
+
+.job-details h1 {
+  font-size: 2rem; /* 32px */
+  margin-bottom: 10px;
+}
+
+.job-details .apply-btn {
+  padding: 15px 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.job-details .apply-btn:hover {
+  background-color: #4d5aa8;
+}
+
+/*=============================================
+=               Auth Forms                    =
+=============================================*/
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 0 1rem; /* For smaller screens */
+}
+
+.auth-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  width: 400px;
+  max-width: 100%;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--gray-light);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-color: #4d5aa8;
+}
+
+.auth-form p {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--secondary-color);
+}
+
+/*=============================================
+=               Footer                        =
+=============================================*/
+.footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  color: var(--gray-medium);
+  margin: 0;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: var(--gray-medium);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-media a {
+  margin: 0 5px;
+}
+
+.social-media img {
+  width: 24px;
+  height: 24px;
+}
+
+/*=============================================
+=            Responsive Styles                =
+=============================================*/
+@media (max-width: 768px) {
   header {
-    background-color: #fff;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  header h1 {
-    font-size: 28px;
-    color: #5c6bc0;
-  }
-  
-  nav {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  .nav-links li {
-    display: inline-block;
-    margin: 0 15px;
-  }
-  
-  .nav-links a {
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .header-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-actions input[type="text"] {
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  .search-btn,
-  .login-btn,
-  .signup-btn {
-    padding: 10px 20px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 5px;
-  }
-  
-  .hamburger {
+
+  .nav-links {
     display: none;
     flex-direction: column;
-    cursor: pointer;
+    width: 100%;
+    text-align: left;
   }
-  
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 4px;
-  }
-  
-  /* Job Listings Styles */
-  .job-listings {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px 50px;
-  }
-  
-  .job-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .job-card h2 {
-    font-size: 18px;
-    color: #333;
-    margin: 0;
-  }
-  
-  .job-card p {
+
+  .nav-links li {
     margin: 10px 0;
-    color: #777;
   }
-  
-  .job-card a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #5c6bc0;
-    font-weight: 600;
-  }
-  
-  /* Job Details Styles */
-  .job-details {
-    padding: 40px 50px;
-  }
-  
-  .job-details h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .job-details .apply-btn {
-    padding: 15px 30px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* Auth Form Styles */
-  .auth-container {
+
+  .hamburger {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
   }
-  
-  .auth-form {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    width: 400px;
+
+  .nav-links.active {
+    display: flex;
   }
-  
-  .auth-form h2 {
-    margin-bottom: 20px;
+
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .auth-form input {
+
+  .header-actions input[type="text"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin: 10px 0;
   }
-  
-  .auth-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #5c6bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+  .job-listings {
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
-  
-  .auth-form p {
-    text-align: center;
-    margin-top: 15px;
-  }
-  
-  /* Footer Styles */
-  .footer {
-    background-color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .footer p {
-    color: #777;
-    margin: 0;
-  }
-  
-  .footer-links {
-    margin-top: 10px;
-  }
-  
-  .footer-links li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  .footer-links a {
-    color: #777;
-  }
-  
-  .social-media {
-    margin-top: 10px;
-  }
-  
-  .social-media a {
-    margin: 0 5px;
-  }
-  
-  .social-media img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-    }
-  
-    .nav-links li {
-      margin: 10px 0;
-    }
-  
-    .hamburger {
-      display: flex;
-    }
-  
-    .nav-links.active {
-      display: flex;
-    }
-  
-    .header-actions {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .header-actions input[type="text"] {
-      width: 100%;
-      margin: 10px 0;
-    }
-  
-    .job-listings {
-      grid-template-columns: 1fr;
-      padding: 20px;
-    }
-  }
-  
+}
