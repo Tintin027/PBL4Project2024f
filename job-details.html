@@ -31,25 +31,15 @@
     .label {
       font-weight: bold;
     }
-  </style>
-</head>
-<body>
-  <div class="job-details">
-    <h1 id="jobTitle">Loading...</h1>
-    <div class="job-item">
-      <span class="label">Company:</span> <span id="company">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Location:</span> <span id="location">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Description:</span> <span id="description">Loading...</span>
-    </div>
-    <div class="job-item">
-      <span class="label">Salary:</span> <span id="salary">Loading...</span>
-    </div>
-  </div>
 
+    #map {
+      margin-top: 20px;
+      height: 300px;
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5OALjEC9eEfzkvtI4ubbcXOkeJMMBTTU&callback=myMap"></script>
   <script>
     // Placeholder job data
     const jobs = [
@@ -73,6 +63,7 @@
           document.getElementById('location').textContent = job.location;
           document.getElementById('description').textContent = job.description;
           document.getElementById('salary').textContent = job.salary;
+          displayMap(job.location);
         } else {
           document.getElementById('jobTitle').textContent = "Job Not Found";
         }
@@ -81,8 +72,49 @@
       }
     }
 
+    function displayMap(address) {
+      const geocoder = new google.maps.Geocoder();
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: { lat: 35.6764, lng: 139.6500 }, // Default to Tokyo
+      });
+
+      geocoder.geocode({ address: address }, (results, status) => {
+        if (status === "OK") {
+          map.setCenter(results[0].geometry.location);
+          new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+          });
+        } else {
+          alert("Unable to find location: " + status);
+        }
+      });
+    }
+
     // Run on page load
     window.onload = loadJobDetails;
   </script>
+</head>
+<body>
+  <div class="job-details">
+    <h1 id="jobTitle">Loading...</h1>
+    <div class="job-item">
+      <span class="label">Company:</span> <span id="company">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Location:</span> <span id="location">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Description:</span> <span id="description">Loading...</span>
+    </div>
+    <div class="job-item">
+      <span class="label">Salary:</span> <span id="salary">Loading...</span>
+    </div>
+    <div>
+      <span class="label">Job Location:</span>
+    </div>
+    <div id="map"></div>
+  </div>
 </body>
 </html>

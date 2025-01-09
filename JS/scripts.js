@@ -9,7 +9,7 @@ const jobs = [
     type: 'Remote • Full-time • 5+ years',
     salary: '$100k - $120k/yr',
     posted: '5 min ago',
-    details: 'job-details.html' // Link to job details page
+    details: 'job-details.html?id=1' // Link to job details page
   },
   {
     title: 'Product Manager',
@@ -18,7 +18,7 @@ const jobs = [
     type: 'Remote • Full-time • 5+ years',
     salary: '$110k - $130k/yr',
     posted: '10 min ago',
-    details: 'job-details.html'
+    details: 'job-details.html?id=2'
   },
   {
     title: 'Software Engineer',
@@ -27,7 +27,7 @@ const jobs = [
     type: 'Remote • Full-time • 5+ years',
     salary: '$120k - $150k/yr',
     posted: '15 min ago',
-    details: 'job-details.html'
+    details: 'job-details.html?id=3'
   }
 ];
 
