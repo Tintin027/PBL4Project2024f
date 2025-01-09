@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobPortal - Job Listings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/jobs.css">
+  <!-- header -->
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="IMG/logo.png" alt="Logo"></a>
+    </div>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <input type="text" id="search-input" placeholder="Search Jobs">
+      <button class="search-btn" onclick="searchJobs()">Search</button>
+      <a href="login.html"><button class="login-btn">Log In</button></a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <link rel="stylesheet" href="CSS/index.css">
+  <section class="main-content"> 
+    <div class="main-content-wrapper"> 
+      <div class="text-content"> 
+        <h1>Be like a pigeon, always chase that bread!</h1> 
+        <h3>“WebsiteName”: The job platform built for university students. Find internships, part-time roles, and entry-level jobs tailored to your skills and studies. Start your career journey today!</h3> 
+        <button type="button" class="start-now-btn">Start Now!</button>
+      </div> 
+      <div class="image-content"> 
+        <!-- Right side image here --> 
+        <img src="images/index_people.png" alt="Example Image">
+        <p class="testimonial">Thanks to DiplomaDough, I finally landed an internship! No more pretending my group project was 'work experience.'</p>
+      </div> 
+    </div> 
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 DiplomaDough. Made by Team F.</p>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="social-media">
+      <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+      <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="JS/scripts.js"></script>
+</body>
+</html>

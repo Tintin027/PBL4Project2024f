@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>Discount Details - Food & Beverages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Baskerville', sans-serif;
+      background-color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+        /* Navigation Bar */
+        .navbar {
+           position: relative;
+           top: 40px;
+           left: 20px;
+           width: 32%;
+           background-color: #ffff;
+           padding: 0px;
+           padding-left: 20px;
+           color: white;
+           z-index: 100;
+           border-radius: 10px;
+           border-color: #8e44ad;
+           border-style: solid;
+           border-width: 2px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           box-shadow: 2px 2px 2px #aaaaaa;
+       }
+
+       .nav-links {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           display: flex;
+           align-items: center;
+           gap: 15px; /* Adjust space between menu items */
+       }
+
+       .nav-links li {
+           position: relative; /* For dropdown positioning */
+       }
+
+       .nav-links a {
+           text-decoration: none;
+           color: #000;
+           display: block;
+           padding: 10px;
+           border-radius: 5px;
+           transition: background 0.3s;
+       }
+
+       .nav-links a:hover {
+           background-color: #8e44ad;
+           color: #fff;
+       }
+       .nav-title{
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* White text for contrast against dark background */
+            letter-spacing: 1px; /* Adds some spacing between letters */
+            font-family: 'Poppins', sans-serif; /* Clean, modern font */
+            text-transform: uppercase; /* Converts title to uppercase */
+            text-align: center;
+            margin: 0; /* Ensures the title is centered without extra spacing */
+        }
+
+       .navbar-title:hover {
+            color: #FFD700; /* Gold color on hover */
+            transition: color 0.3s ease-in-out; /* Smooth color transition */
+        }
+
+       /* Dropdown Menu */
+       .dropdown {
+           display: none;
+           position: absolute;
+           background-color: #44318D;
+           border-radius: 8px;
+           top: 40px;
+           left: 0;
+           min-width: 160px;
+           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+           z-index: 200;
+       }
+
+       .dropdown li a {
+           padding: 10px 20px;
+           display: block;
+           color: white;
+       }
+
+       .dropdown li a:hover {
+           background-color: #8e44ad;
+       }
+
+       /* Hamburger Menu */
+       .hamburger {
+           display: flex;
+           flex-direction: column;
+           cursor: pointer;
+       }
+
+       .bar {
+           height: 2px;
+           width: 20px;
+           background-color: #000;
+           margin: 2px 0;
+           transition: 0.4s;
+       }
+
+       .hamburger:hover .bar {
+           background-color: #8e44ad;
+       }
+
+    /* Overlay Styles */
+    .overlay {
+       height: 100%;
+       width: 0;
+       position: fixed;
+       z-index: 1;
+       top: 0;
+       left: 0;
+       background-color: rgba(0,0,0, 0.9);
+       overflow-x: hidden;
+       transition: 0.5s;
+       padding-top: 60px;
+    }
+
+    .overlay-content {
+       position: relative;
+       text-align: center;
+       margin-top: 200px;
+    }
+
+    .overlay a {
+       padding: 8px;
+       text-decoration: none;
+       font-size: 36px;
+       color: #818181;
+       display: block;
+       transition: 0.3s;
+    }
+
+    .overlay a:hover {
+       color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+       position: absolute;
+       top: 20px;
+       right: 45px;
+       font-size: 60px;
+    }
+
+    /* Logo container styling */
+    .logo-container {
+     display: flex;
+     align-items: center;
+     text-transform: uppercase;
+     font-weight: bold;
+     font-size: 20px;
+     color: #333;
+   }
+
+   /* Styling individual letters */
+   .logo-container .logo-s,
+   .logo-container .logo-l,
+   .logo-container .logo-d {
+     display: inline-block;
+     padding: 5px;
+     position: relative;
+   }
+
+   /* Adding unique styles to each letter */
+   .logo-container .logo-s {
+     color: #ffe100; /* Blue color */
+   }
+   .logo-container .logo-l {
+     color: #8e44ad; /* Green color */
+     transform: rotate(-15deg);
+   }
+   .logo-container .logo-d {
+     color: #e74c3c; /* Red color */
+     text-decoration: underline;
+   }
+
+   /* Optional hover effect */
+   .logo-container:hover .logo-s {
+     color: #ffc400;
+   }
+   .logo-container:hover .logo-l {
+     color: #fff;
+     transform: rotate(0deg);
+   }
+   .logo-container:hover .logo-d {
+     color: #c0392b;
+     text-decoration: none;
+   }
+
+    /* General Container Styles */
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-top: -20px;
+  }
+
+
+  .contact-container{
+    padding: 20px;
+  }
+  .details{
+    padding: 5px;
+  }
+
+  /* Image Gallery Styling */
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding-top: 5%;
+  }
+
+  .image-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+ 
+
+  /* Header Styling */
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #8e44ad;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  h2::before, h2::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background-color: #8e44ad;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+
+  /* Item and Value Styling */
+  .detail-item, .contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .label {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .value {
+    color: #666;
+    display: flex;
+    align-items: center;
+  }
+
+  .dotted-line {
+    border-top: 1px dotted #666;
+    margin: 0 5px;
+    flex-grow: 1;
+    height: 1px;
+  }
+
+  /* CSS for the covering div */
+.map-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4; /* Match this to your background color */
+  z-index: 10; /* Ensure it covers the iframe */
+}
+
+
+
+
+  </style>
+</head>
+<body>
+ 
+  <!-- Top Navigation Bar -->
+<nav class="navbar">
+  <ul class="nav-links">
+      <li class="hamburger" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      </li>
+      <li><a href="index.html" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>    
+      <li>
+          <a href="#" id="discounts-btn">Discounts</a>
+          <ul class="dropdown" id="discounts-dropdown">
+              <li><a href="food&Beverages_page.html">Food Discounts</a></li>
+              <li><a href="entertainment_page.html">Entertainment Discounts</a></li>
+          </ul>
+      </li>
+      <li><a href="about_page.html">About</a></li>
+       <!-- Links visible after login -->
+       <li class="navAfterLogin" style="display: none;"><a href="personal_homepage.html" id="greeting"></a></li>
+       <!-- Links visible before login -->
+      <li  class="navBeforeLogin"><a href="signup_page.html">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- Overlay Navigation -->
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+      <a href="homepage.html">Home</a>
+      <a href="food&Beverages_page.html">Food Discounts</a>
+      <a href="entertainment_page.html">Entertainment Discounts</a>
+      <a href="about_page.html">About Us</a>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Details Section -->
+  <div class="details">
+    <br>
+    <div class="w3-card" style="width:100%;background-color: #fff;">
+      <header class="w3-container w3-light-grey">
+        <h1><span class="value" id="title">Loading...</span></h1>
+        <br>
+      </header>
+      <div class="w3-container">
+        <br>
+        <div class="detail-item">
+          <span class="label">Category</span>
+          <span class="value" id="category">Loading...</span>
+        </div>
+        <hr>
+        <img id="image" class="w3-left w3-circle w3-margin-right" style="width:60px; height: 60px;">
+        <p><span class="value" id="description">Loading...</span></p><br>
+      </div>
+      <div class="w3-button w3-block w3-dark-white">
+        <div class="detail-item">
+          <span class="label">Expiration Date</span>
+          <span class="value" id="expiration">Loading...</span>
+        </div>
+      </div>
+      
+      <!-- Moved Location and Contact Sections -->
+      <div class="contact-container">
+        <h2 style="text-align: center; font-size: 24px; color: #8e44ad; margin-bottom: 20px;">
+          Get in Touch
+        </h2>
+        <div class="contact-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 10px; background-color: #f9f9f9; border-radius: 8px;">
+          <span class="label" style="font-weight: bold; color: #333; font-size: 16px;">
+            Location
+          </span>
+          <span class="value" style="color: #666; font-size: 14px; display: flex; align-items: center;">
+            <a id="location" href="#" target="_blank" style="color: #8e44ad; text-decoration: none; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s;">
+              View on Maps
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Gallery -->
+  <div class="image-gallery">
+    <img id="image1" src="" alt="Image 1">
+    <img id="image2" src="" alt="Image 2">
+    <img id="image3" src="" alt="Image 3">
+    <img id="image4" src="" alt="Image 4">
+  </div>
+</div>
+
+<div class="container2">
+  <!-- Map Container -->
+  <div class="map-container" style="position: relative;">
+    <iframe id="map" frameborder="0" style="border:0;" allowfullscreen></iframe>
+    <!-- Covering Div to hide the iframe -->
+    <div class="map-cover"></div>
+  </div>
+</div>
+
+
+<script>
+  function getDiscountIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id');
+  }
+
+  function createEmbedURL(shareURL) {
+    const encodedAddress = encodeURIComponent(shareURL);
+    return `https://www.google.com/maps/embed/v1/place?key=AIzaSyCcQMDjEPrA9cCZAHQfPW1n47H4r5Bx4EI&q=${encodedAddress}`;
+  }
+
+async function loadDiscountDetails() {
+  const discountId = getDiscountIdFromUrl();
+  if (discountId) {
+    try {
+      const response = await fetch('food_beverages.json');
+      const discounts = await response.json();
+      const discount = discounts.find(d => d.id === parseInt(discountId, 10));
+
+      if (discount) {
+        document.getElementById('title').textContent = discount.name;
+        document.getElementById('description').textContent = discount.description;
+        document.getElementById('category').textContent = discount.category;
+        document.getElementById('expiration').textContent = discount.expiration_date;
+
+        // Set the Location link and map iframe to the transformed embed URL
+        const locationElement = document.getElementById('location');
+        locationElement.href = discount.locations;  // Ensure this line correctly assigns the link
+        locationElement.textContent = "View on Maps";
+
+        const mapIframe = document.getElementById('map');
+        mapIframe.src = createEmbedURL(discount.locations);
+
+        // Update gallery images
+        document.getElementById('image').src = discount.image;
+        document.getElementById('image1').src = discount.image;
+        document.getElementById('image2').src = discount.image2;
+        document.getElementById('image3').src = discount.image3;
+        document.getElementById('image4').src = discount.image4;
+      }
+    } catch (error) {
+      console.error('Error loading discount details:', error);
+    }
+  }
+}
+
+ 
+
+  function toggleMenu() {
+    const overlay = document.getElementById("myNav");
+    overlay.style.width = overlay.style.width === "100%" ? "0" : "100%"; // Toggle overlay width
+  }
+
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0"; // Close overlay
+  }
+
+  document.getElementById('discounts-btn').addEventListener('click', function() {
+    var dropdown = document.getElementById('discounts-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Mock authentication status - Replace with real login check
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  window.onload = function() {
+    loadDiscountDetails();
+    const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
+    const afterLoginElements = document.querySelectorAll(".navAfterLogin");
+
+    if (isLoggedIn) {
+      beforeLoginElements.forEach(el => el.style.display = "none");
+      afterLoginElements.forEach(el => el.style.display = "block");
+    } else {
+      beforeLoginElements.forEach(el => el.style.display = "block");
+      afterLoginElements.forEach(el => el.style.display = "none");
+    }
+  };
+
+  const currentUser = localStorage.getItem("currentUser");
+
+  // Display the username if it exists
+  if (currentUser) {
+    document.getElementById('greeting').textContent = "Welcome, " + currentUser;
+  } else {
+    document.getElementById('greeting').textContent = "Hello, Guest!";
+  }
+</script>
+</body>
+</html>

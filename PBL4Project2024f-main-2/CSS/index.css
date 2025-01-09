@@ -1,0 +1,205 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  /* Main Content Styles */
+  .main-content {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .main-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .text-content {
+    width: 60%;
+  }
+  
+  .image-content {
+    width: 35%;
+    border: 1px solid #ccc;
+    height: 200px;
+  }
+  
+   /* Header Styles */
+   header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: #ffbd58;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 50%; 
+  height: auto;
+  margin-right: 10px; /* Add spacing between the logo and the header text */
+  display: block;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+  
+  header h1 {
+    font-size: 28px;
+    color: #5c6bc0;
+  }
+  
+  nav {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-actions input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .search-btn,
+  .login-btn,
+  .signup-btn {
+    padding: 10px 20px;
+    background-color: #d7d9db;
+    color: black;
+    font-weight: bold;
+    font-size: larger;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px;
+  }
+  
+ 
+  /* Footer Styles */
+  .footer {
+    background-color: #ffbd58;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer p {
+    color: black;
+    margin: 0;
+  }
+  
+  .footer-links {
+    margin-top: 10px;
+  }
+  
+  .footer-links li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .footer-links a {
+    color: black;
+  }
+  
+  .social-media {
+    margin-top: 10px;
+  }
+  
+  .social-media a {
+    margin: 0 5px;
+  }
+  
+  .social-media img {
+    width: 24px;
+    height: 24px;
+  }
+/* Start Now! ボタンのスタイル */ 
+  .start-now-btn { 
+    padding: 10px 22px; /* ボタンのサイズを大きく */ 
+    background-color: #e3cb72; /* オレンジ色に変更 */ 
+    color: black; 
+    font-weight: bold; 
+    font-size: 1.5em; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, 
+    transform 0.3s ease; /* トランジション効果を追加 */ 
+} 
+/* ホバー時の効果 */ 
+  .start-now-btn:hover { 
+    background-color: #e3cb72; /* ホバー時の色を変更 */ 
+    transform: scale(1.05); /* ボタンを少し拡大 */ 
+}
+
+/* Image Content Styles */ 
+.image-content { 
+    width: 35%; 
+    border: 1px solid #ccc; 
+    height: auto; /* 画像の高さを自動調整 */ 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px; /* パディングを追加して見栄えを良くする */ 
+} 
+.image-content img { 
+    max-width: 100%; /* 画像の幅を親要素に合わせる */ 
+    height: auto; /* 画像の高さを自動調整 */ 
+    border-radius: 10px; /* 画像の角を丸くする（オプション） */ 
+} 
+.testimonial { 
+    margin-top: 10px; 
+    font-size: 14px; 
+    color: #333; 
+    text-align: center; 
+}
